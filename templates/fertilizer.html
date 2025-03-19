@@ -1,0 +1,81 @@
+{% extends "nav.html" %}
+
+{% block content %}
+{% load static %}
+
+<!-- Fertilizer Prediction Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="mx-auto text-center mb-5" style="max-width: 800px;">
+            <h1 class="display-10">Fertilizer Recommendation</h1>
+        </div>
+        <div class="row g-0">
+            <center>
+                <div class="col-lg-7">
+                    <div class="bg-primary h-100 p-5">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <input type="text" class="form-control bg-light border-0 px-4" name="Temperature" placeholder="Temperature" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control bg-light border-0 px-4" name="Humidity" placeholder="Humidity" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control bg-light border-0 px-4" name="Moisture" placeholder="Moisture" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-control bg-light border-0 px-4" name="Soil_Type" style="height: 55px;">
+                                        <option value="" disabled selected>Select Soil Type</option>
+                                        <option value="Sandy">Sandy</option>
+                                        <option value="Loamy">Loamy</option>
+                                        <option value="Black">Black</option>
+                                        <option value="Red">Red</option>
+                                        <option value="Clayey">Clayey</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-control bg-light border-0 px-4" name="Crop_Type" style="height: 55px;">
+                                        <option value="" disabled selected>Select Crop Type</option>
+                                        <option value="Maize">Maize</option>
+                                        <option value="Sugarcane">Sugarcane</option>
+                                        <option value="Cotton">Cotton</option>
+                                        <option value="Tobacco">Tobacco</option>
+                                        <option value="Paddy">Paddy</option>
+                                        <option value="Barley">Barley</option>
+                                        <option value="Wheat">Wheat</option>
+                                        <option value="Millets">Millets</option>
+                                        <option value="Oil seeds">Oil Seeds</option>
+                                        <option value="Pulses">Pulses</option>
+                                        <option value="Ground Nut">Ground Nut</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control bg-light border-0 px-4" name="Nitrogen" placeholder="Nitrogen" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control bg-light border-0 px-4" name="Phosphorous" placeholder="Phosphorous" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control bg-light border-0 px-4" name="Potassium" placeholder="Potassium" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-secondary w-100 py-3" type="submit">Predict</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+<!-- Fertilizer Prediction End -->
+
+
+{% if prediction %}
+    <center><h3>Recommended Fertilizer: {{ prediction }}</h3></center>
+{% endif %}
+
+{% endblock %}

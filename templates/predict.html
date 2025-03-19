@@ -1,0 +1,68 @@
+{% extends "nav.html" %}
+
+{% block content %}
+{% load static %}
+
+<!-- Contact Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="mx-auto text-center mb-5" style="max-width: 800px;">
+            
+            <h1 class="display-10">Crop and Fertilizer Recommendation</h1>
+        </div>
+        <div class="row g-0">
+            <center>
+            <div class="col-lg-7">
+                <div class="bg-primary h-100 p-5">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <input type="text" class="form-control bg-light border-0 px-4" name="Nitrogen" placeholder="Nitrogen : {{nitro}}" style="height: 55px;" readonly>
+                            </div>
+                            <div class="col-12">
+                                
+                                <input type="text" class="form-control bg-light border-0 px-4" name="Phosphorous" placeholder="Phosphorous : {{phos}}" style="height: 55px;" readonly>
+                            </div>
+                            <div class="col-12">
+                                
+                                <input type="text" class="form-control bg-light border-0 px-4" name="Potassium" placeholder="Potassium : {{potas}}" style="height: 55px;" readonly>
+                            </div>
+                            <div class="col-12">
+                                
+                                <input type="text" class="form-control bg-light border-0 px-4" name="Temperature" placeholder="Temperature : {{temp}}" style="height: 55px;" readonly>
+                            </div>
+                            <div class="col-12">
+                                
+                                <input type="text" class="form-control bg-light border-0 px-4" name="Humidity" placeholder="Humidity : {{humid}}" style="height: 55px;" readonly>
+                            </div>
+                            <div class="col-12">
+                                
+                                <input type="text" class="form-control bg-light border-0 px-4" name="Ph" placeholder="PH : {{ph}}" style="height: 55px;" readonly>
+                            </div>
+                            <div class="col-12">
+                                
+                                <input type="text" class="form-control bg-light border-0 px-4" name="Rainfall" placeholder="Rainfall : {{rain}}" style="height: 55px;" readonly>
+                            </div>
+                            <div class="col-12">
+                                
+                                <input type="text" class="form-control bg-light border-0 px-4" name="Rainfall" placeholder="Predicted Crop : {{prediction}}" style="height: 55px;" readonly>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-secondary w-100 py-3" type="submit">Predict</button>
+                               
+                            </div>
+                        </div>
+                    </form>
+                </center>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% for i in messages %}
+<script>alert("{{i}}")</script>
+{% endfor %}
+
+{% endblock %}

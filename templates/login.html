@@ -1,0 +1,45 @@
+{% extends "nav.html" %}
+
+{% block content %}
+{% load static %}
+
+<!-- Contact Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="mx-auto text-center mb-5" style="max-width: 500px;">
+            
+            <h1 class="display-5">Login Form</h1>
+        </div>
+        <div class="row g-0">
+            <center>
+            <div class="col-lg-7">
+                <div class="bg-primary h-100 p-5">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <input type="text" class="form-control bg-light border-0 px-4" name="uname" placeholder="User Name" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <input type="password" class="form-control bg-light border-0 px-4" name="psw" placeholder="Password" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-secondary w-100 py-3" type="submit">Sign In</button>
+                            <p style="color: white;">Don't have an Account ?<a href="register" style="color: white;">Register</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </center>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+{% for i in messages %}
+<script>alert("{{i}}")</script>
+{% endfor %}
+
+{% endblock %}
